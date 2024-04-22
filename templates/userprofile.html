@@ -1,0 +1,130 @@
+{%include 'userheader.html'%}
+
+
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">WELCOME USER</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <br><br>
+
+<h2 align="center" style="color: black;">PROFILE</h2>
+
+<br><br>
+
+
+
+<center>
+{%if data['password']%}
+<form action="" method="post">
+    <table>
+        <tr>
+            <th>ENTER YOUR PURCHASE PASSWORD</th>
+            <td><input type="text" name="password" class="form-control" required></td>
+        </tr>
+        <tr>
+            <th>CONFIRM YOUR PASSWORD</th>
+            <td><input type="text" name="confirmpassword" class="form-control" required></td>
+        </tr>
+        <tr>
+            <th><input class="btn btn-success" type="submit" name="submit" value="SUBMIT"></th>
+        </tr>
+    </table>
+</form>
+{%else%}
+
+
+
+{% for i in data['view'] %}
+<div class="profile-card">
+    <div class="avatar-container">
+        <img src="../static/assets/img/user.png" alt="Avatar">
+    </div>
+    <div class="profile-details">
+        <h2 style="color: black;">{{ i['first_name'] }} {{ i['last_name'] }}</h2>
+        <p style="color: black;"><strong>House Name:</strong> {{ i['house_name'] }}</p>
+        <p  style="color: black;"><strong>Place:</strong> {{ i['place'] }}</p>
+        <p  style="color: black;"><strong>Landmark:</strong> {{ i['landmark'] }}</p>
+        <p  style="color: black;"><strong>Pincode:</strong> {{ i['pincode'] }}</p>
+        <p  style="color: black;"><strong>Email:</strong> {{ i['email'] }}</p>
+        {%if i['profile_password']=='pending'%}
+        <a class="btn btn-success" href="?action=password">Create Purchase Password</a>
+        {%endif%}
+
+    </div>
+</div>
+{% endfor %}
+</center>
+{%endif%}
+
+
+
+
+<style>.profile-card {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .avatar-container {
+    text-align: center;
+  }
+  
+  .avatar-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .profile-details h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .profile-details strong {
+    font-weight: bold;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  th,td{
+    color: black;
+  }
+  
+</style>
+
+
+
+
+<br><br><br><br><br>
+
+{%include 'footer.html'%}

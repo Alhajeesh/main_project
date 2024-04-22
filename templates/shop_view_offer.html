@@ -1,0 +1,87 @@
+{%include 'shopheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">OFFER PRODUCTS</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+<br><br>
+
+
+<style>
+    /* Custom styles for the cards */
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        max-height: 200px; /* Adjust the maximum height of the image */
+        object-fit: cover; /* Ensure the image covers the entire container */
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #333;
+    }
+</style>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Loop through your data to create cards -->
+        {% for i in data['view'] %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{i['image']}}" class="card-img-top" alt="{{i['product_name']}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{i['product_name']}}</h5>
+                    <p class="card-text">Normal Price: {{i['price']}}</p>
+                    <p class="card-text">Offer Price: {{i['offer_price']}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- 
+<table class="table" style="width: 800px;">
+    <tr>
+        <th>PRODUCT</th>
+        <th>IMAGE</th>
+        <th>NORMAL PRICE</th>
+        <th>OFFER PRICE</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{i['product_name']}}</td>
+        <td><img src="{{i['image']}}" height="100px" alt=""></td>
+        <td>{{i['price']}}</td>
+        <td>{{i['offer_price']}}</td>
+    </tr>
+    {%endfor%}
+</table> -->
+
+
+{%include 'footer.html'%}

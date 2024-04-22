@@ -1,0 +1,32 @@
+{%include 'shopheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">VIEW PAYMENTS</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/dollar.png" height="50px" width="50px" alt="">PAYMENTS</h1>
+  <table align="center" class="table" style="width : 800px;">   
+    <tr>
+      <th>SLNO</th>
+        <th>CUSTOMER NAME</th>
+        <th>AMOUNT</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['first_name']}}</td>
+        <td>{{i['total']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+{%include 'footer.html'%}

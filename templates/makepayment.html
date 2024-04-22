@@ -1,0 +1,44 @@
+{%include 'userheader.html'%}
+
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">PAYMENT CORNER</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+{%if data['view']%}
+
+<br><br><br>
+<h2 style="color:black" align="center">PAYMENT CORNER</h2>
+
+<center>
+<form action="" method="post">
+    <table class="table" style="width:600px">
+        <tr>
+            <th>AMOUNT</th>
+            <td><input type="text" name="amount" class="form-control" value="{{data['view'][0]['total']}}"></td>
+        </tr>
+        <tr>
+            <th>ENTER YOUR PURCHASE PASSWORD</th>
+            <td><input type="text" name="password" class="form-control"></td>
+        </tr>
+        <tr>
+            <th><input type="submit" name="submit" class="btn btn-success"></th>
+        </tr>
+    </table>
+
+</form>
+</center>
+{%endif%}
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+{%include 'footer.html'%}

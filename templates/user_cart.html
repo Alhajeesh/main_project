@@ -1,0 +1,73 @@
+{%include 'userheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">MY CART</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+
+<table class="table">
+    <tr>
+        <th>SLNO</th>
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT IMAGE</th>
+        <th>DETAILS</th>
+        <th>QUANTITY</th>
+        <th>AMOUNT</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['product_name']}}</td>
+        <td><img src="{{i['image']}}" height="100px" width="100px" alt=""></td>
+        <td>{{i['details']}}</td>
+        <td>{{i['order_qty']}}</td>
+        <td>{{i['amount']}}</td>
+        <td><a class="btn btn-danger" href="?action=remove&id={{i['order_details_id']}}">REMOVE</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+
+<center>
+<form action="" method="post">
+    <table class="tbale">
+        <tr>
+            <th><input type="text" name="total" class="form-control" value="{{data['view'][0]['total']}}" readonly></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            
+        </tr>
+        <tr>
+            <th></th>
+        </tr>
+        <tr>
+            <th></th>
+        </tr>
+        {%if data['view'][0]['shop_verified']=='accepted'%}
+        <tr>
+            <th class="btn btn-success" style="color: black;"><a href="/makepayment" > MAKE PAYMENT</a></th>
+        </tr>
+        {%else%}
+        <tr>
+            <th class="btn btn-primary" style="color: black;">WAIT FOR APPROVAL</th>
+        </tr>
+        {%endif%}
+    </table>
+</form>
+
+</center>
+
+<br><br><br>
+
+{%include 'footer.html'%}

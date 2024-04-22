@@ -1,0 +1,99 @@
+{%include 'shopheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">MANAGE PRODUCTS</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+    </div>
+  </section><!-- End Hero -->
+
+
+{%if data['up']%}
+<form action="" method="post" enctype="multipart/form-data"> 
+    <table align="center" class="table" style="width : 800px;">
+        <tr>
+            <th>PRODUCT NAME</th>
+            <td><input type="text" name="pname" value="{{data['up'][0]['product_name']}}"></td>
+        </tr>
+        <tr>
+            <th>PRODUCT DETAILS</th>
+            <td><input type="text" name="details" value="{{data['up'][0]['details']}}"></td>
+        </tr>
+      
+        <tr>
+            <th>PRICE</th>
+            <td><input type="text" name="price" value="{{data['up'][0]['price']}}"></td>
+        </tr>
+       
+        <tr>
+            <th></th>
+            <th><input type="submit" name="update" class="btn btn-success" value="UPDATE"></th>
+        </tr>
+    </table>
+</form>
+
+{%else%}
+
+<form action="" method="post" enctype="multipart/form-data"> 
+    <table align="center" class="table" style="width : 800px;">
+        <tr>
+            <th>PRODUCT NAME</th>
+            <td><input type="text" name="pname" required></td>
+        </tr>
+        <tr>
+            <th>PRODUCT DETAILS</th>
+            <td><input type="text" name="details" required></td>
+        </tr>
+        <tr>
+            <th>IMAGE</th>
+            <td><input type="file" name="image" required></td>
+        </tr>
+        <tr>
+            <th>PRICE</th>
+            <td><input type="text" name="price" required></td>
+        </tr>
+        <tr>
+            <th>PRODUCT QUANTITY</th>
+            <td><input type="text" name="quantity" required></td>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" class="btn btn-success" name="submit" value="ADD"></th>
+        </tr>
+    </table>
+</form>
+
+
+
+<h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/dairy-products.png" height="50px" width="50px" alt="">PRODUCTS</h1>
+<table align="center" class="table" style="width : 1200px;">    <tr>
+        <th>SL NO</th>
+        <th>PRODUCT NAME</th>
+        <th>DETAILS</th>
+        <th>IMAGE</th>
+        <th>PRICE</th>
+    
+        <th>QUANTITY</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['product_name']}}</td>
+        <td>{{i['details']}}</td>
+        <td><img src="{{i['image']}}" height="50px" width="50px"></td>
+        <td>{{i['price']}}</td>
+
+        <td>{{i['quantity']}}</td>
+        <td><a href="?action=update&id={{i['product_id']}}"><button class="btn btn-success">UPDATE</button></a></td>
+        <td><a href="?action=delete&id={{i['product_id']}}"><button class="btn btn-danger">DELETE</button></a></td>
+        <td><a href="/upstock?id={{i['product_id']}}"><button class="btn btn-primary">STOCK</button></a></td>
+
+    </tr>
+    {%endfor%}
+</table>
+
+{%endif%}
+
+{%include 'footer.html'%}

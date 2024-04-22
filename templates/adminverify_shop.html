@@ -1,0 +1,56 @@
+{%include 'adminheader.html'%}
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">VERIFY SHOP</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+
+
+
+
+<br><br><br>
+
+
+<img src="../static/assets/img/shopverification-removebg-preview.png" height="200px" alt="">
+<p align="center" style="margin-left: 200px;margin-top:-100px">Whoever said money can’t buy happiness simply didn’t know where to go shopping.</p>
+<br><br><br>
+  <h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/shops.png" height="50px" width="50px" alt="">SHOPS</h1>
+  <table align="center" class="table" style="width : 1000px;">
+    <tr style="background-color: blanchedalmond;">
+        <th></th>
+        <th>SHOP NAME</th>
+        <th>PLACE</th>
+        <th>LANDMARK</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td><img src="static/assets/img/shops.png" height="30px" width="30px" alt=""></td>
+        <td>{{i['shop_name']}}</td>
+        <td>{{i['place']}}</td>
+        <td>{{i['landmark']}}</td>
+        <td>{{i['phone']}}</td>
+        <td>{{i['email']}}</td>
+        {%if i['usertype']=='pending'%}
+
+        <td><a href="?action=accept&id={{i['login_id']}}"><img src="static/assets/img/accept.png" height="30px" width="30px" alt=""></a></td>
+        <td><a href="?action=reject&id={{i['login_id']}}"><img src="static/assets/img/cross.png" height="30px" width="30px" alt=""></a></td>
+        {%endif%}
+
+    </tr>
+
+ 
+    {%endfor%}
+</table>
+
+
+
+{%include 'footer.html'%}

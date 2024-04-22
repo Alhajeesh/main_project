@@ -1,0 +1,423 @@
+{%include 'userheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">COMPLAINT CORNER</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <h2 align="center" style="color: black;">COMPLAINT CORNER</h2>
+
+  <br><br>
+
+  <center>
+<form action="" method="post">
+    <table class="table" style="width: 500px;">
+        <tr>
+            <th>COMPLAINT</th>
+        </tr>
+        <tr>
+            <td><input type="text" required class="form-control" name="complaint"></td>
+        </tr>
+        <tr>
+            <th><input type="submit" class="btn btn-success" name="submit" value="SEND"></th>
+        </tr>
+    </table>
+</form>
+
+
+<br><br>
+
+<h2 align="center" style="color: black;">COMPLAINTS</h2>
+
+<br><br>
+
+<table class="table">
+    <tr>
+        <th>SLNO</th>
+        <th>COMPLAINT</th>
+        <th>REPLY</th>
+        <th>DATE</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['complaint']}}</td>
+        <td>{{i['reply']}}</td>
+        <td>{{i['date_time']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+</center>
+
+
+
+
+<style>
+    table {
+        font-family: 'Arial', sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        border: 1px solid #e0e0e0;
+        text-align: left;
+        padding: 12px;
+    }
+
+    th {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #e5e5e5;
+    }
+</style>
+
+
+<style>
+    table {
+      font-family: 'Arial', sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+      border: 1px solid #e0e0e0;
+      text-align: left;
+      padding: 12px;
+  }
+  
+  th {
+      background-color: #3498db;
+      color: #fff;
+  }
+  
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+      background-color: #e5e5e5;
+  }
+     
+      .form-container {
+          width: 700px;
+          background: linear-gradient(white, white) padding-box,
+                      linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+          border: 2px solid transparent;
+          padding: 32px 24px;
+          font-size: 14px;
+          font-family: inherit;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          box-sizing: border-box;
+          border-radius: 16px;
+        }
+        
+        .form-container button:active {
+          scale: 0.95;
+        }
+        
+        .form-container .form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        
+        .form-container .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        
+        .form-container .form-group label {
+          display: block;
+          margin-bottom: 5px;
+          color: #717171;
+          font-weight: 600;
+          font-size: 12px;
+        }
+        
+        .form-container .form-group input {
+          width: 100%;
+          padding: 12px 16px;
+          border-radius: 8px;
+          color: black;
+          font-family: inherit;
+          background-color: transparent;
+          border: 1px solid #414141;
+        }
+        
+        .form-container .form-group textarea {
+          width: 100%;
+          padding: 12px 16px;
+          border-radius: 8px;
+          resize: none;
+          color: #fff;
+          height: 96px;
+          border: 1px solid #414141;
+          background-color: transparent;
+          font-family: inherit;
+        }
+        
+        .form-container .form-group input::placeholder {
+          opacity: 0.5;
+        }
+        
+        .form-container .form-group input:focus {
+          outline: none;
+          border-color: #e81cff;
+        }
+        
+        .form-container .form-group textarea:focus {
+          outline: none;
+          border-color: #e81cff;
+        }
+        
+        .form-container .form-submit-btn {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          align-self: flex-start;
+          font-family: inherit;
+          color: #ffffff;
+          font-weight: 600;
+          width: 40%;
+          background: #313131;
+          border: 1px solid #414141;
+          padding: 12px 16px;
+          font-size: inherit;
+          gap: 8px;
+          margin-top: 8px;
+          cursor: pointer;
+          border-radius: 6px;
+        }
+        
+        .form-container .form-submit-btn:hover {
+          background-color: green;
+          border-color: #fff;
+        }
+  
+  
+  
+        @keyframes scaleAnimation {
+          0% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.05);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+  
+      .form-container {
+          /* Existing styles */
+          animation: scaleAnimation 0.3s ease-in-out;
+      }
+  
+      .form-container .form-submit-btn {
+          /* Existing styles */
+          transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+      }
+  
+      .form-container .form-submit-btn:hover {
+          background-color: green;
+          border-color: #fff;
+          animation: scaleAnimation 0.3s ease-in-out;
+      }
+  
+      .button {
+          position: relative;
+          width: 150px;
+          height: 40px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          border: 1px solid #cc0000;
+          background-color: #e50000;
+          overflow: hidden;
+        }
+        
+        .button, .button__icon, .button__text {
+          transition: all 0.3s;
+        }
+        
+        .button .button__text {
+          transform: translateX(35px);
+          color: #fff;
+          font-weight: 600;
+        }
+        
+        .button .button__icon {
+          position: absolute;
+          transform: translateX(109px);
+          height: 100%;
+          width: 39px;
+          background-color: #cc0000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .button .svg {
+          width: 20px;
+        }
+        
+        .button:hover {
+          background: #cc0000;
+        }
+        
+        .button:hover .button__text {
+          color: transparent;
+        }
+        
+        .button:hover .button__icon {
+          width: 148px;
+          transform: translateX(0);
+        }
+        
+        .button:active .button__icon {
+          background-color: #b20000;
+        }
+        
+        .button:active {
+          border: 1px solid #b20000;
+        }
+        .edit-button {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: rgb(20, 20, 20);
+          border: none;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+          cursor: pointer;
+          transition-duration: 0.3s;
+          overflow: hidden;
+          position: relative;
+          text-decoration: none !important;
+        }
+        
+        .edit-svgIcon {
+          width: 17px;
+          transition-duration: 0.3s;
+        }
+        
+        .edit-svgIcon path {
+          fill: white;
+        }
+        
+        .edit-button:hover {
+          width: 120px;
+          border-radius: 50px;
+          transition-duration: 0.3s;
+          background-color: rgb(255, 69, 69);
+          align-items: center;
+        }
+        
+        .edit-button:hover .edit-svgIcon {
+          width: 20px;
+          transition-duration: 0.3s;
+          transform: translateY(60%);
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+        
+        .edit-button::before {
+          display: none;
+          content: "Edit";
+          color: white;
+          transition-duration: 0.3s;
+          font-size: 2px;
+        }
+        
+        .edit-button:hover::before {
+          display: block;
+          padding-right: 10px;
+          font-size: 13px;
+          opacity: 1;
+          transform: translateY(0px);
+          transition-duration: 0.3s;
+        }
+  
+        .button {
+          width: 40px;
+          height: 40px;
+          margin-top: -45px;
+          border-radius: 50%;
+          background-color: rgb(20, 20, 20);
+          border: none;
+          font-weight: 500;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+          cursor: pointer;
+          transition-duration: 0.3s;
+          overflow: hidden;
+          position: relative;
+          gap: 1px;
+        }
+        
+        .svgIcon {
+          width: 12px;
+          transition-duration: 0.3s;
+        }
+        
+        .svgIcon path {
+          fill: white;
+        }
+        
+        .button:hover {
+          transition-duration: 0.3s;
+          background-color: rgb(255, 69, 69);
+          align-items: center;
+          gap: 0;
+        }
+        
+        .bin-top {
+          transform-origin: bottom right;
+        }
+        .button:hover .bin-top {
+          transition-duration: 0.5s;
+          transform: rotate(160deg);
+        }
+        
+        
+      
+        
+        
+        
+        
+  </style>
+
+{%include 'footer.html'%}

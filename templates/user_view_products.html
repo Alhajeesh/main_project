@@ -1,0 +1,152 @@
+{%include 'userheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">WELCOME USER</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <br><br>
+  <h1 align="center" style="color: black;">PRODUCTS DETAILS</h1>
+
+  <br><br>
+
+
+
+
+  <center>
+
+{%if data['stock']%}
+<form action="" method="post">
+    <table class="table" style="width: 500px;">
+     
+        <tr>
+            <th>AVAILABLE STOCK</th>
+            <td><input type="text" name="stock"  class="form-control" value="{{data['stock'][0]['quantity']}}"></td>
+        </tr>
+        <tr>
+            <th>ENTER YOUR QUANTITY</th>
+            <td><input type="text" name="quantity" class="form-control" placeholder="ENTER YOUR QUANTITY" required></td>
+        </tr>
+        <tr>
+            <th><input type="submit" name="submit" class="btn btn-success" value="ADD"></th>
+        </tr>
+
+    </table>
+</form>
+</center>
+{%else%}
+
+
+<!-- 
+<table>
+    <tr>
+        <th>PRODUCT NAME</th>
+        <th>DETAILS</th>
+        <th>PRICE</th>
+        <th>IMAGE</th>
+        <th>SHOP NAME</th>
+        <th>STOCK</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{i['product_name']}}</td>
+        <td>{{i['details']}}</td>
+        <td>{{i['price']}}</td>
+        <td><img src="{{i['image']}}" height="100px" width="100px" alt=""></td>
+        <td>{{i['shop_name']}}</td>
+        <td>{{i['quantity']}}</td>
+        <td><a href="?action=quantity&id={{i['product_id']}}">ADD TO CART</a></td>
+    </tr>
+    {%endfor%}
+</table>
+{%endif%}  -->
+
+
+<div class="product-container">
+    {% for i in data['view'] %}
+    <div class="product-card">
+        <div class="image-container">
+            <img src="{{ i['image'] }}"  alt="{{ i['product_name'] }}">
+        </div>
+        <div class="product-details">
+            <h3 style="color: black;">{{ i['product_name'] }}</h3>
+            <p style="color: black;"><strong>Details:</strong> {{ i['details'] }}</p>
+            <p style="color: black;"><strong>Price:</strong> {{ i['price'] }}/-</p>
+            <p style="color: black;"><strong>Shop Name:</strong> {{ i['shop_name'] }}</p>
+            <p style="color: black;"><strong>Stock:</strong> {{ i['quantity'] }}</p>
+            <a href="?action=quantity&id={{ i['product_id'] }}" class="add-to-cart-btn">ADD TO CART</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<style>
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .product-card {
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .image-container {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .image-container img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        
+    }
+    
+    .product-details {
+        padding: 15px;
+    }
+    
+    .product-details h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .product-details p {
+        margin: 5px 0;
+    }
+    
+    .add-to-cart-btn {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .add-to-cart-btn:hover {
+        background-color: #0056b3;
+    }
+    
+</style>
+
+
+{%include 'footer.html'%}

@@ -1,0 +1,50 @@
+{%include 'adminheader.html'%}
+
+
+
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">VIEW CUSTOMERS</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+<br><br><br><br><br>
+
+  <h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/team.png" height="50px" width="50px" alt="">USERS</h1>
+  <table align="center" class="table" style="width : 1100px;">    
+    <tr>
+        <th></th>
+        <th>slno</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>HOUSE NAME</th>
+        <th>PLACE</th>
+        <th>LANDMARK</th>
+        <th>PINCODE</th>
+        <th>EMAIL</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <th><img src="static/assets/img/user.png" height="30px" width="30px" alt=""></th>
+
+        <td>{{loop.index}}</td>
+        <td>{{i['first_name']}}</td>
+        <td>{{i['last_name']}}</td>
+        <td>{{i['house_name']}}</td>
+        <td>{{i['place']}}</td>
+        <td>{{i['landmark']}}</td>
+        <td>{{i['pincode']}}</td>
+        <td>{{i['email']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+<br><br><br><br><br>
+{%include 'footer.html'%}

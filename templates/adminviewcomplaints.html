@@ -1,0 +1,63 @@
+{%include 'adminheader.html'%}
+
+
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">WELCOME ADMIN</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+    </div>
+  </section><!-- End Hero -->
+
+
+{%if data['up']%}
+<form action="" method="post">
+    <table align="center" class="table" style="width : 1100px;">        <tr>
+        <tr>
+            <th>COMPLAINT</th>
+            <td><input type="text" name="com" value="{{data['up'][0]['complaint']}}" readonly></td>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="text" name="reply" required></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="submit" class="btn btn-success" value="SEND"></th>
+        </tr>
+    </table>
+</form>
+
+
+{%else%}
+
+
+
+
+
+
+<h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/danger-sign.png" height="50px" width="50px" alt="">COMPLAINTS</h1>
+<table align="center" class="table" style="width : 1100px;">        <tr>
+        <th>slno</th>
+        <th>USER</th>
+        <th>COMPLAINTS</th>
+        <th>REPLY</th>
+        <th>DATE</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <th>{{loop.index}}</th>
+        <th>{{i['first_name']}}</th>
+        <th>{{i['complaint']}}</th>
+        <th>{{i['reply']}}</th>
+        <th>{{i['date_time']}}</th>
+        <th><a class="btn btn-success" href="?action=reply&id={{i['complaint_id']}}">REPLY</a></th>
+    </tr>
+
+    {%endfor%}
+</table>
+{%endif%}
+
+
+
+{%include 'footer.html'%}

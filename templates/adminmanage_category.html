@@ -1,0 +1,69 @@
+{%include 'adminheader.html'%}
+
+<br>    
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1 style="color: black;margin-top :350px;">MANAGE CATEGORY</h1>
+      <h2 style="color: black;">ANY DAY IS PERFECT FOR SHOPPING..!</h2>
+      <p align="center" style="color: black;">Scroll down to see more content</p>
+      <div align="center" class="down-arrow">&#9660;</div>
+    </div>
+  </section><!-- End Hero -->
+
+
+
+  <br><br><br>
+
+
+  <img style="margin-left: 350px;" src="../static/assets/img/categoryy-removebg-preview.png" height="250px" alt="">
+
+
+{%if data['up']%}
+<form action="" method="post">
+    <table align="center" class="table" style="width : 800px;">
+        <tr>
+            <th>CATEGORY</th>
+            <td><input type="text" name="cat" value="{{data['up'][0]['category_name']}}"></td>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="up" class="btn btn-success" value="UPDATE"></th>
+        </tr>
+    </table>
+</form>
+{%else%}
+
+<form action="" method="post">
+    <table align="center" class="table" style="width : 800px;">
+        <tr>
+            <th>CATEGORY</th>
+            <td><input type="text" name="cat" required></td>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="sub" class="btn btn-success" value="ADD"></th>
+        </tr>
+    </table>
+</form>
+
+
+<h1 align="center" style="color: black; text-decoration:underline"><img src="static/assets/img/dairy-products.png" height="50px" width="50px" alt="">PRODUCT CATEGORY</h1>
+<table align="center" class="table" style="width : 800px;">
+    <tr>
+        <th>sl no</th>
+        <th>category</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['category_name']}}</td>
+        <td><a href="?action=update&id={{i['category_id']}}"><img src="static/assets/img/edit.png" height="30px" width="30px" alt=""></a></td>
+        <td><a href="?action=delete&id={{i['category_id']}}"><img src="static/assets/img/delete.png" height="30px" width="30px" alt=""></a></td>
+    </tr>
+    {%endfor%}
+</table>
+{%endif%}
+
+
+{%include 'footer.html'%}
